@@ -94,7 +94,7 @@ def run_lines():
     for roster_xml in roster_list:
         put_roster(headers, team_id, roster_xml)
 
-    return "Your lines should be now set, however some multi-positional players might be benched when you could be active.  I will hopefully fix this later."
+    return "Your lines should be now set."
 
 
 def get_token(code):
@@ -159,10 +159,6 @@ def get_league(headers, team_id):
         return "Something broke - invalid team id"
 
     return r.content
-
-
-# dictionary with a breakdown of positions i.e. {u'C': 2, u'RW': 2, u'D': 4, u'G': 2, u'BN': 4, u'LW': 2}
-# TODO add check for non standard roster positions
 
 def get_roster_breakdown(league_xml):
     league = BeautifulSoup(league_xml, 'lxml')
